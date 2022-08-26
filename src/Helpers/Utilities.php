@@ -30,7 +30,9 @@ if (! function_exists('trailing_slash_it')) {
 if (! function_exists('active_route')) {
     function active_route(string $route, $active = true, $default = false)
     {
-        if (url()->current() == $route) {
+        if (
+            url()->current() == $route ||
+            str(url()->current())->remove(config('app.url')) == untrailing_slash_it($route)) {
             return $active;
         }
 
