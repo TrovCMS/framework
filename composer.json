@@ -9,7 +9,7 @@
     },
     "require": {
         "php": "^8.0",
-        "laravel/laravel": "^9.3",
+        "filament/filament": "^2.0",
         "spatie/laravel-package-tools": "^1.9.2"
     },
     "autoload": {
