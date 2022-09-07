@@ -9,15 +9,23 @@
             <x-prose>
                 @if ($posts)
                     <h1>Recent Blog Posts</h1>
-                    <ul>
+                    <ul role="list">
                         @foreach ($posts as $post)
                             <li>
-                                <div>{{ $post['tag']->name }}</div>
-                                <ul>
-                                    @foreach ($post['post'] as $fq)
-                                        <li><a href="{{ route('post.show', $fq) }}">{{ $fq->question }}</a></li>
-                                    @endforeach
-                                </ul>
+                                <article>
+                                    <h2><a href="{{ route('blog.show', $post) }}">{{ $post->title }}</a></h2>
+                                    <span class="sr-only">Post Tags</span>
+                                    <ul role="list" class="flex items-center gap-3 flex-wrap">
+                                        @foreach ($post->tags->pluck('name') as $tag)
+                                            <li>
+                                                <x-pill>
+                                                    {{ $tag }}
+                                                </x-pill>
+                                            </li>
+                                        @endforeach
+                                    </ul>
+                                    <p>{{ $post->excerpt }}</p>
+                                </article>
                             </li>
                         @endforeach
                     </ul>
@@ -25,8 +33,8 @@
             </x-prose>
 
             <x-slot name="sidebar">
-                <x-widget heading="Check out our awesome blog">
-                    <p>When we get around to writing some posts.</p>
+                <x-widget heading="B-E-A-utiful!">
+                    <p>Check out this awesome widget.</p>
                 </x-widget>
             </x-slot>
 

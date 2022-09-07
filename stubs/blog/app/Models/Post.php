@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Support\Str;
 use Spatie\Tags\HasTags;
 use Trov\Concerns\HasAuthor;
 use Trov\Concerns\HasFeaturedImage;
@@ -49,9 +50,18 @@ class Post extends Model
         'content' => 'array',
     ];
 
+    protected $appends = [
+        'excerpt',
+    ];
+
     protected $with = [
         'meta',
     ];
+
+    public function getExcerptAttribute(): string
+    {
+        return Str::of(strip_tags($this->content[0]['blocks'][0]['data']['content']))->excerpt(null, ['radius' => 300]);
+    }
 
     public function getBasePath()
     {
@@ -60,6 +70,6 @@ class Post extends Model
 
     public function getPublicUrl()
     {
-        return url()->to($this->getBasePath().'/'.$this->slug.'/');
+        return url()->to($this->getBasePath() . '/' . $this->slug . '/');
     }
 }

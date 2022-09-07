@@ -71,7 +71,8 @@ class InstallBlog
         $this->consoleWriter->success('Policies published.');
 
         $this->addToRoutes([
-            "Route::name('posts.show')->get('/posts/{post:slug}/', [\\App\\Http\\Controllers\\PostController::class, 'show']);",
+            "Route::name('blog.index')->get('/blog/', [\\App\\Http\\Controllers\\PostController::class, 'index']);",
+            "Route::name('blog.show')->get('/posts/{post:slug}/', [\\App\\Http\\Controllers\\PostController::class, 'show']);",
         ]);
 
         $this->consoleWriter->success('Routes published.');
