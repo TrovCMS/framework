@@ -27,20 +27,20 @@ use Filament\Tables\Filters\TrashedFilter;
 use FilamentAddons\Enums\Status;
 use FilamentAddons\Forms\Components\Timestamps;
 use FilamentAddons\Forms\Components\TitleWithSlug;
-use FilamentAddons\Tables\Actions\PreviewAction;
 use FilamentAddons\Tables\Columns\TitleWithStatus;
 use FilamentTiptapEditor\TiptapEditor;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 use Trov\Components\Meta;
+use Trov\Tables\Actions\PreviewAction;
 
 class FaqResource extends Resource
 {
     protected static ?string $model = Faq::class;
 
-    protected static ?string $label = 'FAQ';
+    protected static ?string $breadcrumb = 'FAQs';
 
-    protected static ?string $pluralLabel = 'FAQs';
+    protected static ?string $modelLabel = 'FAQ';
 
     protected static ?string $navigationGroup = 'Site';
 

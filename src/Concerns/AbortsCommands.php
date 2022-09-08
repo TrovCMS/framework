@@ -12,6 +12,7 @@ trait AbortsCommands
             if ($process) {
                 throw new AdderException("{$message}\nFailed to run: '{$process->getCommandLine()}'.");
             }
+
             throw new AdderException("{$message}");
         }
     }

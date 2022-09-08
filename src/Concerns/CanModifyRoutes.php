@@ -3,8 +3,8 @@
 namespace Trov\Concerns;
 
 use Illuminate\Support\Arr;
-use Illuminate\Support\Str;
 use Illuminate\Support\Facades\File;
+use Illuminate\Support\Str;
 
 trait CanModifyRoutes
 {
@@ -25,14 +25,16 @@ trait CanModifyRoutes
             if (Str::of($line)->contains($find)) {
                 $padding = Str::of($line)->before('Route');
 
-                $toAdd = collect($routes)->transform(function ($route) use ($padding) { return $padding.$route; })->toArray();
+                $toAdd = collect($routes)->transform(function ($route) use ($padding) {
+                    return $padding . $route;
+                })->toArray();
 
                 if ($bottom) {
-                    array_splice($output, $k - 2, 0, array_merge([""], $toAdd));
+                    array_splice($output, $k - 2, 0, array_merge([''], $toAdd));
                     array_push($output, $line);
                 } else {
                     array_push($output, $line);
-                    array_push($output, "");
+                    array_push($output, '');
                     array_splice($output, $k + 2, 0, $toAdd);
                 }
             } else {

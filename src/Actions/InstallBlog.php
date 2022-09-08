@@ -2,14 +2,10 @@
 
 namespace Trov\Actions;
 
-use Trov\Utils\ConsoleWriter;
-use Illuminate\Console\Command;
-use Illuminate\Support\Facades\DB;
-use Trov\Concerns\CanInstallModule;
-use Illuminate\Support\Facades\Schema;
-use Illuminate\Support\Facades\Artisan;
 use Trov\Concerns\AbortsCommands;
+use Trov\Concerns\CanInstallModule;
 use Trov\Concerns\CanModifyRoutes;
+use Trov\Utils\ConsoleWriter;
 
 class InstallBlog
 {
@@ -48,6 +44,7 @@ class InstallBlog
             } else {
                 $this->consoleWriter->warn('Adding ' . $this->label . ' module canceled.');
             }
+
             return 1;
         }
 

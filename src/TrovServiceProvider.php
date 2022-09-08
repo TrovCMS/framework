@@ -2,16 +2,16 @@
 
 namespace Trov;
 
-use Filament\Facades\Filament;
 use Filament\PluginServiceProvider;
-use Trov\Commands\AddModuleCommand;
 use Spatie\LaravelPackageTools\Package;
+use Trov\Commands\AddModuleCommand;
 
 class TrovServiceProvider extends PluginServiceProvider
 {
     public function configurePackage(Package $package): void
     {
         $package->name('trov')
+            ->hasViews()
             ->hasCommands([AddModuleCommand::class]);
     }
 

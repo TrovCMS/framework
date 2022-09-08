@@ -2,14 +2,10 @@
 
 namespace Trov\Actions;
 
-use Trov\Utils\ConsoleWriter;
-use Illuminate\Console\Command;
-use Illuminate\Support\Facades\DB;
-use Trov\Concerns\CanInstallModule;
-use Illuminate\Support\Facades\Schema;
-use Illuminate\Support\Facades\Artisan;
 use Trov\Concerns\AbortsCommands;
+use Trov\Concerns\CanInstallModule;
 use Trov\Concerns\CanModifyRoutes;
+use Trov\Utils\ConsoleWriter;
 
 class InstallDiscoveries
 {
@@ -48,6 +44,7 @@ class InstallDiscoveries
             } else {
                 $this->consoleWriter->warn('Adding ' . $this->label . ' module canceled.');
             }
+
             return 1;
         }
 
@@ -71,6 +68,7 @@ class InstallDiscoveries
         $this->consoleWriter->success('Policies published.');
 
         $this->addToRoutes([
+            "Route::name('discoveries')->get('/discovery-center/', [\\App\\Http\\Controllers\\DiscoveryCenterController::class, 'index']);",
             "Route::name('discovery-topics.show')->get('/discovery-center/topics/{topic:slug}/', [\\App\\Http\\Controllers\\DiscoveryTopicController::class, 'show']);",
             "Route::name('discovery-articles.show')->get('/discovery-center/articles/{article:slug}/', [\\App\\Http\\Controllers\\DiscoveryArticleController::class, 'show']);",
         ]);

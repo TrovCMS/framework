@@ -59,7 +59,7 @@ class DiscoveryArticle extends Model
 
     public function getPublicUrl()
     {
-        return url()->to($this->getBasePath().'/'.$this->slug.'/');
+        return route('discovery-articles.show', $this);
     }
 
     public function topic()

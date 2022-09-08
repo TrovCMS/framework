@@ -110,11 +110,11 @@ class SheetResource extends Resource
                 TrashedFilter::make(),
             ])
             ->actions([
-                PreviewAction::make(),
-                EditAction::make(),
-                DeleteAction::make(),
-                RestoreAction::make(),
-                ForceDeleteAction::make(),
+                PreviewAction::make()->iconButton(),
+                EditAction::make()->iconButton(),
+                DeleteAction::make()->iconButton(),
+                RestoreAction::make()->iconButton(),
+                ForceDeleteAction::make()->iconButton(),
             ])
             ->bulkActions([
                 DeleteBulkAction::make(),

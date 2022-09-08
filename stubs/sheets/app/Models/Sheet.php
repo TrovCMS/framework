@@ -52,11 +52,11 @@ class Sheet extends Model
 
     public function getBasePath()
     {
-        return '/'.$this->type;
+        return '/' . $this->type;
     }
 
     public function getPublicUrl()
     {
-        return url()->to($this->getBasePath().'/'.$this->slug.'/');
+        return route('sheets.show', ['type' => $this->type, 'page' => $this]);
     }
 }

@@ -119,7 +119,7 @@ class ConsoleWriter extends OutputStyle
     {
         $itemsToString = '';
         foreach ($items as $item) {
-            $itemsToString .= '<li class="pl-2">'.$item.'</li>';
+            $itemsToString .= '<li class="pl-2">' . $item . '</li>';
         }
 
         render(<<<HTML

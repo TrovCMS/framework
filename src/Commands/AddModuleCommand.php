@@ -2,16 +2,16 @@
 
 namespace Trov\Commands;
 
-use Trov\Actions\InstallBlog;
-use Trov\Actions\InstallFaqs;
-use Trov\Utils\ConsoleWriter;
 use Illuminate\Console\Command;
-use Trov\Actions\InstallAirport;
 use Illuminate\Console\OutputStyle;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
+use Trov\Actions\InstallAirport;
+use Trov\Actions\InstallBlog;
 use Trov\Actions\InstallDiscoveries;
+use Trov\Actions\InstallFaqs;
 use Trov\Actions\InstallSheets;
+use Trov\Utils\ConsoleWriter;
 
 class AddModuleCommand extends Command
 {
@@ -78,8 +78,10 @@ class AddModuleCommand extends Command
         $this->consoleWriter = app(ConsoleWriter::class);
     }
 
-    public function handleInvalidModule() {
+    public function handleInvalidModule()
+    {
         $this->consoleWriter->note('No modules selected. Nothing to do.');
+
         return Command::FAILURE;
     }
 }

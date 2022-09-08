@@ -3,14 +3,15 @@
 namespace Trov\Concerns;
 
 use Filament\Pages\Actions;
-use FilamentAddons\Forms\Actions\PreviewAction;
+use Trov\Forms\Actions\PreviewAction;
+use Trov\Forms\Actions\SaveAction;
 
 trait HasCustomEditActions
 {
     public function getActions(): array
     {
         return [
-            Actions\Action::make('save')->color('primary')->action('save'),
+            SaveAction::make(),
             PreviewAction::make()->record($this->record),
             Actions\DeleteAction::make(),
             Actions\ForceDeleteAction::make(),
