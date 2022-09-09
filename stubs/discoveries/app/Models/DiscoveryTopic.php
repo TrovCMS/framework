@@ -47,11 +47,6 @@ class DiscoveryTopic extends Model
         'meta',
     ];
 
-    public function getBasePath()
-    {
-        return '/discover/topics';
-    }
-
     public function getPublicUrl()
     {
         return route('discovery-topics.show', $this);

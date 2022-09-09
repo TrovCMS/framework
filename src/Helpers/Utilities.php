@@ -1,5 +1,7 @@
 <?php
 
+use Illuminate\Database\Eloquent\Model;
+
 if (! function_exists('random_password')) {
     function random_password(): string
     {
@@ -37,5 +39,31 @@ if (! function_exists('active_route')) {
         }
 
         return $default;
+    }
+}
+
+if (! function_exists('get_route_base')) {
+    function get_route_base(string $route_name)
+    {
+        $routeItem = collect(app(Illuminate\Routing\Router::class)->getRoutes())->filter(function ($route) use ($route_name) {
+            return $route->getName() === $route_name;
+        })->first();
+
+        if ($routeItem) {
+            return $routeItem->uri;
+        }
+
+        return '/';
+    }
+}
+
+if (! function_exists('is_front_page')) {
+    function is_front_page(?Model $record)
+    {
+        if (isset($record['front_page']) && $record['front_page']) {
+            return true;
+        }
+
+        return false;
     }
 }

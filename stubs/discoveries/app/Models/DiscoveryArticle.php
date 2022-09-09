@@ -52,11 +52,6 @@ class DiscoveryArticle extends Model
         'meta',
     ];
 
-    public function getBasePath()
-    {
-        return '/discover/articles';
-    }
-
     public function getPublicUrl()
     {
         return route('discovery-articles.show', $this);

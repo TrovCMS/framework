@@ -50,11 +50,6 @@ class Sheet extends Model
         'meta',
     ];
 
-    public function getBasePath()
-    {
-        return '/' . $this->type;
-    }
-
     public function getPublicUrl()
     {
         return route('sheets.show', ['type' => $this->type, 'page' => $this]);
