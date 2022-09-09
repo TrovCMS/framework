@@ -53,11 +53,6 @@ class Faq extends Model
         'meta',
     ];
 
-    public function getBasePath()
-    {
-        return '/faqs/';
-    }
-
     public function getPublicUrl()
     {
         return route('faqs.show', $this);

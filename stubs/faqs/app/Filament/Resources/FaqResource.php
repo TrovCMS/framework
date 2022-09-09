@@ -26,12 +26,12 @@ use Filament\Tables\Filters\SelectFilter;
 use Filament\Tables\Filters\TrashedFilter;
 use FilamentAddons\Enums\Status;
 use FilamentAddons\Forms\Components\Timestamps;
-use FilamentAddons\Forms\Components\TitleWithSlug;
 use FilamentAddons\Tables\Columns\TitleWithStatus;
 use FilamentTiptapEditor\TiptapEditor;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 use Trov\Components\Meta;
+use Trov\Forms\Components\TitleWithSlug;
 use Trov\Tables\Actions\PreviewAction;
 
 class FaqResource extends Resource
@@ -55,7 +55,7 @@ class FaqResource extends Resource
     public static function form(Form $form): Form
     {
         return $form->schema([
-            TitleWithSlug::make('question', 'slug', '/faqs/')->columnSpan('full'),
+            TitleWithSlug::make('question', 'slug')->columnSpan('full'),
             Section::make('Details')
                 ->collapsible()
                 ->collapsed(fn ($livewire) => $livewire instanceof EditRecord)

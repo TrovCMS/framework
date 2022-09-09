@@ -27,13 +27,12 @@ use Filament\Tables\Filters\SelectFilter;
 use Filament\Tables\Filters\TrashedFilter;
 use FilamentAddons\Enums\Status;
 use FilamentAddons\Forms\Components\Timestamps;
-use FilamentAddons\Forms\Components\TitleWithSlug;
 use FilamentAddons\Tables\Actions\PreviewAction;
 use FilamentAddons\Tables\Columns\TitleWithStatus;
 use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 use Trov\Components\Meta;
+use Trov\Forms\Components\TitleWithSlug;
 
 class SheetResource extends Resource
 {
@@ -55,7 +54,7 @@ class SheetResource extends Resource
     {
         return $form
             ->schema([
-                TitleWithSlug::make('title', 'slug', fn (?Model $record) => $record ? "/{$record->type}/" : '/')->columnSpan('full'),
+                TitleWithSlug::make('title', 'slug')->columnSpan('full'),
                 Section::make('Details')
                     ->collapsible()
                     ->collapsed(fn ($livewire) => $livewire instanceof EditRecord)

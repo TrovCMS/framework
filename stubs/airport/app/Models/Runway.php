@@ -41,11 +41,6 @@ class Runway extends Model
         'content' => 'array',
     ];
 
-    public function getBasePath()
-    {
-        return $this->basePath;
-    }
-
     public function getPublicUrl()
     {
         return route('airport.show', $this);

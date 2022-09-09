@@ -63,11 +63,6 @@ class Post extends Model
         return Str::of(strip_tags($this->content[0]['blocks'][0]['data']['content']))->excerpt(null, ['radius' => 300]);
     }
 
-    public function getBasePath()
-    {
-        return '/posts';
-    }
-
     public function getPublicUrl()
     {
         return route('blog.show', $this);
