@@ -46,6 +46,8 @@ class SheetResource extends Resource
 
     protected static ?string $navigationIcon = 'heroicon-o-collection';
 
+    protected static ?int $navigationSort = 3;
+
     protected static ?string $recordTitleAttribute = 'title';
 
     protected static ?string $recordRouteKeyName = 'id';

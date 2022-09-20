@@ -5,6 +5,7 @@ namespace Trov;
 use Filament\PluginServiceProvider;
 use Spatie\LaravelPackageTools\Package;
 use Trov\Commands\AddModuleCommand;
+use Trov\Commands\InstallCommand;
 
 class TrovServiceProvider extends PluginServiceProvider
 {
@@ -12,7 +13,10 @@ class TrovServiceProvider extends PluginServiceProvider
     {
         $package->name('trov')
             ->hasViews()
-            ->hasCommands([AddModuleCommand::class]);
+            ->hasCommands([
+                InstallCommand::class,
+                AddModuleCommand::class,
+            ]);
     }
 
     public function register(): void

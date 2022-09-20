@@ -48,6 +48,8 @@ class PostResource extends Resource
 
     protected static ?string $navigationIcon = 'heroicon-o-newspaper';
 
+    protected static ?int $navigationSort = 2;
+
     protected static ?string $recordTitleAttribute = 'title';
 
     protected static ?string $recordRouteKeyName = 'id';

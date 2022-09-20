@@ -48,6 +48,8 @@ class FaqResource extends Resource
 
     protected static ?string $navigationLabel = 'FAQs';
 
+    protected static ?int $navigationSort = 1;
+
     protected static ?string $recordTitleAttribute = 'question';
 
     protected static ?string $recordRouteKeyName = 'id';
