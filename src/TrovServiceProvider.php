@@ -6,6 +6,7 @@ use Filament\PluginServiceProvider;
 use Spatie\LaravelPackageTools\Package;
 use Trov\Commands\AddModuleCommand;
 use Trov\Commands\InstallCommand;
+use Trov\Commands\InstallDemoCommand;
 
 class TrovServiceProvider extends PluginServiceProvider
 {
@@ -16,6 +17,7 @@ class TrovServiceProvider extends PluginServiceProvider
             ->hasCommands([
                 InstallCommand::class,
                 AddModuleCommand::class,
+                InstallDemoCommand::class,
             ]);
     }
 
