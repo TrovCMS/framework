@@ -21,7 +21,7 @@ class AddModuleCommand extends Command
     {
         $modules = $this->choice(
             'What modules would you like to add?',
-            ['All', 'FAQs', 'Blog', 'Airport (Landing Pages)', 'Sheets (Unbranded Pages)', 'Discovery Center (Topics and Articles)'],
+            ['None', 'All', 'FAQs', 'Blog', 'Airport (Landing Pages)', 'Sheets (Unbranded Pages)', 'Discovery Center (Topics and Articles)'],
             0,
             null,
             true
