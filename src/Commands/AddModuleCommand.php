@@ -64,6 +64,7 @@ class AddModuleCommand extends Command
                 "Route::name('faqs.index')->get('/faqs/', [\\App\\Http\\Controllers\\FaqController::class, 'index']);",
                 "Route::name('faqs.show')->get('/faqs/{faq:slug}/', [\\App\\Http\\Controllers\\FaqController::class, 'show']);",
             ],
+            'route_at_bottom' => false,
         ]);
     }
 
@@ -79,6 +80,7 @@ class AddModuleCommand extends Command
                 "Route::name('blog.index')->get('/blog/', [\\App\\Http\\Controllers\\PostController::class, 'index']);",
                 "Route::name('blog.show')->get('/posts/{post:slug}/', [\\App\\Http\\Controllers\\PostController::class, 'show']);",
             ],
+            'route_at_bottom' => false,
         ]);
     }
 
@@ -93,6 +95,7 @@ class AddModuleCommand extends Command
             'routes' => [
                 "Route::name('airport.show')->get('/airport/{runway:slug}/', [\\App\\Http\\Controllers\\AirportController::class, 'show']);",
             ],
+            'route_at_bottom' => false,
         ]);
     }
 
@@ -107,6 +110,7 @@ class AddModuleCommand extends Command
             'routes' => [
                 "Route::name('sheets.show')->get('/{type}s/{page:slug}/', [\\App\\Http\\Controllers\\SheetController::class, 'show']);",
             ],
+            'route_at_bottom' => true,
         ]);
     }
 
@@ -123,6 +127,7 @@ class AddModuleCommand extends Command
                 "Route::name('discovery-topics.show')->get('/discovery-center/topics/{topic:slug}/', [\\App\\Http\\Controllers\\DiscoveryTopicController::class, 'show']);",
                 "Route::name('discovery-articles.show')->get('/discovery-center/articles/{article:slug}/', [\\App\\Http\\Controllers\\DiscoveryArticleController::class, 'show']);",
             ],
+            'route_at_bottom' => false,
         ]);
     }
 
@@ -203,7 +208,7 @@ class AddModuleCommand extends Command
         ]);
 
         $this->comment('Publishing routes...');
-        $this->addToRoutes($options['routes']);
+        $this->addToRoutes($options['routes'], $options['route_at_bottom']);
 
         $this->info('Trov ' . $options['label'] . ' module is now installed.');
         $this->newLine();
