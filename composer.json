@@ -1,11 +1,11 @@
 {
-    "name": "trovcms/core",
+    "name": "trovcms/framework",
     "description": "A CMS start kit for websites, built on Filament and Laravel.",
     "license": "MIT",
-    "homepage": "https://github.com/trovcms/core",
+    "homepage": "https://github.com/trovcms/framework",
     "support": {
-        "issues": "https://github.com/trovcms/core/issues",
-        "source": "https://github.com/trovcms/core"
+        "issues": "https://github.com/trovcms/framework/issues",
+        "source": "https://github.com/trovcms/framework"
     },
     "require": {
         "php": "^8.0",
